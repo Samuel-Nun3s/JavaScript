@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <style>
+        body {
+            background-color: rgb(100, 100, 173);
+            color: white;
+            font: normal 20pt Arial;
+        }
+
+        h1 {
+            color: rgb(223, 223, 26);
+        }
+    </style>
+</head>
+<body>
+    <h1>Olá, Mundo!</h1>
+    <p>Já me livrei da maldição</p>
+
+    <script>
+        var n1 = Number(window.prompt('Digite um número: '));
+        var n2 = Number(window.prompt('Digite outro número: '));
+        var soma = n1 + n2; 
+        window.alert(`A soma entre os numeros ${n1} e ${n2} é igual a ${soma}`); // Para usar o template string usar crase ``
+           
+        // (number + number) para adição
+        // (string + string) para concatenação
+        /*
+            Number: Para mudar o tipo de variavel para number
+                Number.parseInt() = Para numeros inteiros
+                Number.parsefloat() = Para numeros reais
+                Number() = Para qualquer tipo de numero
+
+            String: Para mudar o tipo de variavel para string
+                String(x) = Para mudar para string
+                .String() = Para mudar para string
+        */
+    </script>
+</body>
+</html>
