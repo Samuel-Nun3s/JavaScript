@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Define as configurações do body
-    document.body.style.backgroundColor = cor
+    document.body.style.backgroundColor = cor;
 
     // Define a imagem de fundo e suas propriedades
     imagem.style.backgroundImage = 'url(' + caminho + ')';
