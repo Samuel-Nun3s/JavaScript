@@ -6,7 +6,6 @@
 }
 
 body {
-    background-color: rgb(146, 36, 146);
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -20,6 +19,7 @@ header {
 h1 {
     font-size: 70px;
     color: white;
+    text-shadow: 3px 3px black;
 }
 
 section {
@@ -43,6 +43,7 @@ div#imagem {
     margin: auto;
     margin-top: 24px;
     border-radius: 50%;
+    box-shadow: 1px 1px 5px black;
 }
 
 footer {
