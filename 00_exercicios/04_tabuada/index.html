@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Tabuada</h1>
+    </header>
+    <section>
+        <div id="dados">
+            <form>
+                <label for="numero">Numero:</label>
+                <input type="number" name="numero" id="numero">
+                <input type="button" value="Gerar Tabuada" id="botao" onclick="tabuada()">
+            </form>
+        </div>
+        <div id="resultado">
+            <select name="res" id="res" size="10">
+                <option>Digite um numero acima</option>
+            </select>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; Criado por Samuel Nunes</p>
+    </footer>
+</body>
+</html>
