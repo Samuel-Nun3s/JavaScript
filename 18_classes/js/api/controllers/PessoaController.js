@@ -46,23 +46,28 @@ export class PessoaController {
     adiciona(event) {
 
         event.preventDefault();
+        const id = document.querySelector("#idPessoa").value;
 
-        // criar uma pessoa
-        // adicionar nova pessoa na lista
-        const pessoaAdd = this._criaPessoa();
-        this._listaPessoas.adiciona(pessoaAdd);
-        //console.log(this._listaPessoas.pessoas);
+        // se nao tiver id adiciona senao atualiza
+        if (!id) {
+            // adicionar nova pessoa na lista
+            const pessoaAdd = this._criaPessoa();
+            this._listaPessoas.adiciona(pessoaAdd);
+            //console.log(this._listaPessoas.pessoas);
 
-        // adicionar no repositorio
-        this._pessoasRepository.criar(pessoaAdd);
-        this._pessoasView.update(this._mensagem);
+            // adicionar no repositorio
+            this._pessoasRepository.criar(pessoaAdd);
+            this._pessoasView.update(this._mensagem);
 
-        // definir e atualizar mensagem
-        this._mensagem.texto = 'Pessoa cadastrada com sucesso!';
-        this._mensagemView.update(this._mensagem);
+            // definir e atualizar mensagem
+            this._mensagem.texto = 'Pessoa cadastrada com sucesso!';
+            this._mensagemView.update(this._mensagem);
 
-        // atualização da tela
-        this._pessoasView.update(this._listaPessoas);
+            // atualização da tela
+            this._pessoasView.update(this._listaPessoas);
+        } else {
+            this.atualiza(id); // atualiza do controller
+        }
     }
 
     // criar pessoa
@@ -84,4 +89,39 @@ export class PessoaController {
 
         this._inputNome.focus()
     }
+
+    apaga(id) {
+        // se tem id pode apagar o registro
+        if (id) {
+            this._listaPessoas.remove(id); // remove da view
+            this._pessoasView.update(this._listaPessoas); // atualizar a view
+
+            this._pessoasRepository.apagar(id); // remove do repository
+            console.log("PessoaController Apagou");
+        }
+    }
+
+    atualiza(id) {
+        // criar nova pessoa atualizada
+        let pessoaAtualizada = this._criaPessoa();
+        console.log(pessoaAtualizada);
+
+        // atualizar repositorio
+        this._pessoasRepository.atualizar(id, pessoaAtualizada);
+        console.log("Atualizou repositorio");
+
+        // atualizar lista
+        this._listaPessoas.atualiza(id, pessoaAtualizada);
+        console.log("Atualizou a lista");
+
+        // atualizar a view
+        this._pessoasView.update(this._listaPessoas);
+        document.querySelector("#idPessoa").value = null;
+    }
+
+    buscaPorId(id) {
+        let pessoaEncontrada = this._pessoasRepository.lerPorId(id);
+        return pessoaEncontrada;
+    }
+
 }
