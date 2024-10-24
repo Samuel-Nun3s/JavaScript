@@ -8,10 +8,13 @@
         // 4: Solicitação concluída e resposta pronta 
 
 var xhr = new XMLHttpRequest();
+var documento;
 
+xhr.responseType = "json"
 xhr.onreadystatechange = function () {
     if (xhr.readyState == 4 && xhr.status == 200) {
-        console.log(xhr);
+        documento = xhr.response;
+        console.log(documento);
     } else {
         
     }
